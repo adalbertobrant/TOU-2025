@@ -18,14 +18,14 @@ Abaixo está a lista de exercícios resolvidos disponíveis neste repositório. 
 
 | Exercício | Solução (C++) |
 | :--- | :--- |
-| Distância entre Pontos | [distanciaEntrePontos.cpp](./distanciaEntrePontos.cpp) |
-| Lâmpadas | [lampadas.cpp](./lampadas.cpp) |
-| Múltiplos de 2, 3 e 4 | [multiplos.cpp](./multiplos.cpp) |
-| Número de Envelopes | [numeroEnvelopes.cpp](./numeroEnvelopes.cpp) |
-| Primo | [primo.cpp](./primo.cpp) |
-| Repetir X vezes | [repetirX.cpp](./repetirX.cpp) |
-| Senha 2018 | [senha2018.cpp](./senha2018.cpp) |
-| Todos os Divisores | [todosOsDivisores.cpp](./todosOsDivisores.cpp) |
+| Distância entre Pontos | [distanciaEntrePontos.cpp](./2911/distanciaEntrePontos.cpp) |
+| Lâmpadas | [lampadas.cpp](./2911/lampadas.cpp) |
+| Múltiplos de 2, 3 e 4 | [multiplos.cpp](./2911/multiplos.cpp) |
+| Número de Envelopes | [numeroEnvelopes.cpp](./2911/numeroEnvelopes.cpp) |
+| Primo | [primo.cpp](./2911/primo.cpp) |
+| Repetir X vezes | [repetirX.cpp](./2911/repetirX.cpp) |
+| Senha 2018 | [senha2018.cpp](./2911/senha2018.cpp) |
+| Todos os Divisores | [todosOsDivisores.cpp](./2911/todosOsDivisores.cpp) |
 
 ---
 
