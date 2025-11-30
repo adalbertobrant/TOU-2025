@@ -2,6 +2,16 @@
 
 Repositório das aulas e questões resolvidas do Projeto TOU 2025 (Talentos em Programação - Universidade Federal de Uberlândia).
 
+## 📚 Material da Aula 
+
+Abaixo está o material da Aula Estruturas de Repetição - TOU - 2025 
+
+| Material Aula | link |
+| :--- | :--- |
+| Estruturas de Repetição For, While, Do While | [estruturasRepetição](./3-estruturasDeRepeticao-while.pdf) |
+
+---
+
 ## 📚 Questões Resolvidas
 
 Abaixo está a lista de exercícios resolvidos disponíveis neste repositório. Clique no nome do arquivo para acessar o código.
@@ -18,6 +28,8 @@ Abaixo está a lista de exercícios resolvidos disponíveis neste repositório. 
 | Todos os Divisores | [todosOsDivisores.cpp](./todosOsDivisores.cpp) |
 
 ---
+
+
 
 ## 💡 Dicas e Orientações
 
