@@ -1,20 +1,35 @@
-# TOU-2025
-Repositório das aulas e questões resolvidas - Projeto TOU -2025 - UFU - 
+# Projeto TOU-2025 - UFU
 
-## Questões resolvidas
+Repositório das aulas e questões resolvidas do Projeto TOU 2025 (Talentos em Programação - Universidade Federal de Uberlândia).
 
-Caso tenha dúvidas abra um issue com o nome da questão e digite a sua dúvida e também coloque a foto da execução do problema. Respostas em até 24 horas.
+## 📚 Questões Resolvidas
 
-Tente não utilizar IAs para resolver o problema pois não sedimentam o conhecimento de maneira adequada.
+Abaixo está a lista de exercícios resolvidos disponíveis neste repositório. Clique no nome do arquivo para acessar o código.
 
-Na dúvida use folha e papel e simule a entrada e resolução dos dados
+| Exercício | Solução (C++) |
+| :--- | :--- |
+| Distância entre Pontos | [distanciaEntrePontos.cpp](./distanciaEntrePontos.cpp) |
+| Lâmpadas | [lampadas.cpp](./lampadas.cpp) |
+| Múltiplos de 2, 3 e 4 | [multiplos.cpp](./multiplos.cpp) |
+| Número de Envelopes | [numeroEnvelopes.cpp](./numeroEnvelopes.cpp) |
+| Primo | [primo.cpp](./primo.cpp) |
+| Repetir X vezes | [repetirX.cpp](./repetirX.cpp) |
+| Senha 2018 | [senha2018.cpp](./senha2018.cpp) |
+| Todos os Divisores | [todosOsDivisores.cpp](./todosOsDivisores.cpp) |
 
-Ainda com dúvida , tente explicar para o "pato amarelo de borracha" o problema e como está tentando resolver. 
+---
 
-Não conseguiu ainda...faça uma revisão da matéria que está utilizando para resolver o problema.
+## 💡 Dicas e Orientações
 
-Ainda não conseguiu ? Tente dividir o problema em problemas menores e resolva cada um deles separadamente e depois junte.
+Caso tenha dúvidas na resolução ou execução dos problemas, siga o roteiro abaixo:
 
-Para cada uma das dúvidas pode abrir o issue e perguntar para o seu monitor ou professor.
+1.  **Issues:** Abra uma *issue* neste repositório com o nome da questão. Descreva sua dúvida e, se possível, coloque uma foto ou *print* da execução do problema. As respostas serão dadas em até 24 horas.
+2.  **Evite IAs Generativas:** Tente não utilizar IAs para resolver o problema de imediato, pois isso pode prejudicar a sedimentação do conhecimento.
+3.  **Teste de Mesa:** Na dúvida, use papel e caneta. Simule a entrada de dados e o passo a passo da resolução manualmente.
+4.  **Rubber Duck Debugging:** Ainda com dúvida? Tente explicar o problema e sua lógica para um "pato de borracha" (ou qualquer objeto inanimado). Falar em voz alta ajuda a organizar o pensamento.
+5.  **Revisão:** Não conseguiu ainda? Faça uma revisão da matéria teórica relacionada ao problema.
+6.  **Dividir para Conquistar:** O problema parece grande demais? Tente dividi-lo em problemas menores, resolva cada parte separadamente e depois junte tudo.
 
-Bons estudos.
+> Para cada dúvida persistente, não hesite em abrir uma issue ou perguntar ao seu monitor/professor.
+
+**Bons estudos!** 🚀
