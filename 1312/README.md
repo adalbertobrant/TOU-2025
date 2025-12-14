@@ -68,3 +68,119 @@ for ( int i = 0; i < 3; i++ ){ // primeiro laço for vai iterar sobre as linhas 
 }
 ```
 
+## Adição de Matrizes
+A soma de duas matrizes, A e B, resulta em uma terceira matriz, C, onde cada elemento de C é a soma dos elementos correspondentes em A e B.
+
+$$
+\begin{bmatrix} 
+a & b \\
+c & d
+\end{bmatrix} +
+\begin{bmatrix} 
+e & f \\
+g & h
+\end{bmatrix} =
+\begin{bmatrix} 
+a+e & b+f \\
+c+g & d+h
+\end{bmatrix}
+$$
+
+### Exemplo em C++
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int A[2][2] = {{1, 2}, {3, 4}};
+    int B[2][2] = {{5, 6}, {7, 8}};
+    int C[2][2];
+
+    // Somando as matrizes
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            C[i][j] = A[i][j] + B[i][j];
+        }
+    }
+
+    // Imprimindo a matriz resultante
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            cout << C[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+```
+
+## Subtração de Matrizes
+A subtração de duas matrizes, A e B, resulta em uma terceira matriz, C, onde cada elemento de C é a subtração dos elementos correspondentes em A e B.
+
+$$
+\begin{bmatrix} 
+a & b \\
+c & d
+\end{bmatrix} -
+\begin{bmatrix} 
+e & f \\
+g & h
+\end{bmatrix} =
+\begin{bmatrix} 
+a-e & b-f \\
+c-g & d-h
+\end{bmatrix}
+$$
+
+### Exemplo em C++
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int A[2][2] = {{8, 7}, {6, 5}};
+    int B[2][2] = {{1, 2}, {3, 4}};
+    int C[2][2];
+
+    // Subtraindo as matrizes
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            C[i][j] = A[i][j] - B[i][j];
+        }
+    }
+
+    // Imprimindo a matriz resultante
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            cout << C[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+```
+
+## Multiplicação de Matrizes
+A multiplicação de matrizes é um pouco mais complexa. O elemento na linha *i* e coluna *j* da matriz resultante é a soma dos produtos dos elementos da linha *i* da primeira matriz com os elementos da coluna *j* da segunda matriz.
+
+$$
+\begin{bmatrix} 
+a & b \\
+c & d
+\end{bmatrix} \times
+\begin{bmatrix} 
+e & f \\
+g & h
+\end{bmatrix} =
+\begin{bmatrix} 
+(a \times e) + (b \times g) & (a \times f) + (b \times h) \\
+(c \times e) + (d \times g) & (c \times f) + (d \times h)
+\end{bmatrix}
+$$
+
+### Exemplo em C++
+Para um exemplo de código em C++, veja o arquivo [multiplicacao.cpp](multiplicacao.cpp).
