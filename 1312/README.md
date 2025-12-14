@@ -27,4 +27,10 @@ $$
    \end{bmatrix}
 \end{array}
 $$
+
+Como podemos observar existe uma pequena similaridade entre o conceito matemático de matrizes e como a mesma é imaginada em circuitos de memória dentro do computador.
+
+As matrizes são armazenadas na memória como longos vetores e são utilizadas como uma forma de guardar dados, realizar cálculos matemáticos complexos, tais como a multiplicação de matrizes, abaixo vamos desenvolver um passo a passo de como calcular a soma, divisão, multiplicação e subtração de matrizes na matemática para depois implementarmos isso com código:
+
+
   
