@@ -10,10 +10,10 @@ int matriz_inteiros[3][2]
 Nessa representação a matriz_inteiros possui 3 linhas e 2 colunas em cada linha podendo ser representada pelo desenho esquemático:
 
 $$
-\begin{bmatrix}
-linha 0 -> 1&2\\
-linha 1 -> 5&6\\
-linha 2 -> 0&9
-\end{bmatrix}
+\begin{array}{cc}
+   & \begin{matrix} \text{col } 0 & \text{col } 1 \end{matrix} \\
+   \begin{matrix} \text{linha } 0 \to \\ \text{linha } 1 \to \\ \text{linha } 2 \to \end{matrix} &
+   \begin{bmatrix} 1 & 2 \\ 5 & 6 \\ 0 & 9 \end{bmatrix}
+\end{array}
 $$
   
