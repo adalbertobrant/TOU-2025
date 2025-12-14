@@ -12,7 +12,7 @@ Nessa representação a matriz_inteiros possui 3 linhas e 2 colunas em cada linh
 $$
 \begin{array}{cc}
    % Espaço vazio no topo esquerdo e Rótulos das Colunas
-   & \begin{matrix} \text{col 0}  & \text{col 1}  \end{matrix} \\\\
+   & \begin{matrix} \text{col 0}  & \text{col 1}  \end{matrix} \\
    % Rótulos das Linhas (lado esquerdo)
    \begin{matrix} 
       \text{linha 0} \to \\\\ 
