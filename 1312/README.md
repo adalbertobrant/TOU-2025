@@ -8,9 +8,12 @@ Podemos declarar então uma matriz em C++ como:
 int matriz_inteiros[3][2]
 ````
 Nessa representação a matriz_inteiros possui 3 linhas e 2 colunas em cada linha podendo ser representada pelo desenho esquemático:
-                 coluna 0  coluna 1
-  linha -> 0  |      1          2  |
-  linha -> 1  |      3          5  |
-  linha -> 2  |      7          8  |
 
+$$
+\begin{bmatrix}
+1&2\\
+5&6\\
+0&9
+\end{bmatrix}
+$$
   
