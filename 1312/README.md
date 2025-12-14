@@ -15,14 +15,14 @@ $$
    & \begin{matrix} \text{col 0}  & \text{col 1}  \end{matrix} \\
    % Rótulos das Linhas (lado esquerdo)
    \begin{matrix} 
-      \text{linha 0} \to \\
+      \text{linha 0 } \to \\
       \text{linha 1} \to \\
       \text{linha 2} \to 
    \end{matrix} &
    % A Matriz (lado direito)
    \begin{bmatrix} 
-      1 & 2 \\\\ 
-      5 & 6 \\\\ 
+      1 & 2 \\ 
+      5 & 6 \\
       0 & 9 
    \end{bmatrix}
 \end{array}
