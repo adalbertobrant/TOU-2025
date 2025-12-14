@@ -11,9 +11,9 @@ Nessa representação a matriz_inteiros possui 3 linhas e 2 colunas em cada linh
 
 $$
 \begin{bmatrix}
-1&2\\
-5&6\\
-0&9
+linha 0 -> 1&2\\
+linha 1 -> 5&6\\
+linha 2 -> 0&9
 \end{bmatrix}
 $$
   
