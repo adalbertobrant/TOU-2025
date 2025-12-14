@@ -41,8 +41,7 @@ $$
 Para acessar um elemento da matriz em C++ fazemos da seguinte forma:
 ```cpp
 int elemento_da_matriz_acessado = matriz[i][j];
-
-C
+```
 O **i** e o **j** indicam a posição do elemento que queremos acessar, como a matriz é um tipo de dados de duas dimensões temos que passar a linha (i) e coluna(j) onde o elemento está armazenado na memória.
 
 Podemos acessar também diretamente o elemento usando literais:
