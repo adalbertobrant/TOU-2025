@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 Aprenda Backtracking - Versão para Crianças</title>
+    <style>
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: 'Comic Sans MS', 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            color: #2c3e50;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #f0f0f0;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 25px;
+        }
+
+        /* ÁREA DO LABIRINTO */
+        .maze-area {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .maze-grid {
+            display: grid;
+            grid-template-columns: repeat(10, 55px);
+            grid-template-rows: repeat(10, 55px);
+            gap: 4px;
+            background: #bdc3c7;
+            padding: 10px;
+            border-radius: 12px;
+            margin: 0 auto;
+            width: fit-content;
+        }
+
+        .cell {
+            width: 55px;
+            height: 55px;
+            background: white;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 26px;
+        }
+
+        .cell:hover:not(.wall) {
+            transform: scale(1.05);
+            border-color: #3498db;
+        }
+
+        .step-number {
+            position: absolute;
+            top: 2px;
+            right: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            background: rgba(255,255,255,0.9);
+            padding: 2px 5px;
+            border-radius: 10px;
+            color: #2c3e50;
+        }
+
+        /* ESTADOS DAS CÉLULAS */
+        .cell.wall {
+            background: linear-gradient(145deg, #34495e, #2c3e50);
+            cursor: not-allowed;
+            border-color: #2c3e50;
+        }
+
+        .cell.start {
+            background: linear-gradient(135deg, #56ccf2, #2f80ed);
+            border: 3px dashed white;
+        }
+
+        .cell.end {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            border: 3px solid #e74c3c;
+        }
+
+        .cell.robot-here {
+            background: linear-gradient(135deg, #feca57, #ff9ff3) !important;
+            transform: scale(1.15) !important;
+            box-shadow: 0 0 25px rgba(254, 202, 87, 0.8);
+            z-index: 100;
+            border: 3px solid #f39c12;
+        }
+
+        .cell.trying {
+            background: linear-gradient(135deg, #a8e6cf, #dcedc1);
+            border-color: #27ae60;
+        }
+
+        .cell.blocked {
+            background: linear-gradient(135deg, #ffb3ba, #ff677d);
+            border-color: #e74c3c;
+            animation: shake 0.3s;
+        }
+
+        .cell.backtracking {
+            background: linear-gradient(135deg, #ffd3b6, #ffaaa5);
+            border-color: #e67e22;
+            opacity: 0.7;
+        }
+
+        .cell.success {
+            background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
+            animation: pulse 1s infinite;
+            border: 3px solid #0984e3;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(79, 172, 254, 0.5); }
+            50% { transform: scale(1.1); box-shadow: 0 0 25px rgba(79, 172, 254, 0.8); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* PAINEL DE CONTROLE */
+        .control-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+            font-size: 1.3em;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 8px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        button {
+            padding: 14px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.2);
+        }
+
+        button:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 rgba(0,0,0,0.2);
+        }
+
+        .btn-start {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: white;
+            grid-column: 1 / -1;
+        }
+
+        .btn-pause {
+            background: linear-gradient(135deg, #ee0979, #ff6a00);
+            color: white;
+        }
+
+        .btn-reset {
+            background: linear-gradient(135deg, #bdc3c7, #ecf0f1);
+            color: #2c3e50;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .speed-control {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .speed-control label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            outline: none;
+            -webkit-appearance: none;
+            background: #ddd;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3498db;
+            cursor: pointer;
+        }
+
+        .speed-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+
+        /* LOG DE ATIVIDADES */
+        .activity-log {
+            max-height: 280px;
+            overflow-y: auto;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        .log-entry {
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            border-left: 4px solid;
+            background: white;
+            animation: slideIn 0.3s;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .log-start { border-color: #3498db; }
+        .log-try { border-color: #27ae60; }
+        .log-block { border-color: #e74c3c; }
+        .log-back { border-color: #e67e22; font-weight: bold; }
+        .log-success { border-color: #9b59b6; font-weight: bold; background: #f3e5f5; }
+
+        /* LEGENDA */
+        .legend {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 13px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            border: 2px solid #ddd;
+        }
+
+        /* ESTATÍSTICAS */
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            text-align: center;
+        }
+
+        .stat-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Aprenda Backtracking Brincando!</h1>
+        <p class="subtitle">
+            O robô tenta encontrar a bandeira. Quando encontra uma parede 🧱 ou um beco sem saída, 
+            ele <strong>VOLTA</strong> e tenta outro caminho. Isso é BACKTRACKING! 🔄
+        </p>
+
+        <div class="main-layout">
+            <!-- ÁREA DO LABIRINTO -->
+            <div class="maze-area">
+                <div class="maze-grid" id="maze"></div>
+                <p style="text-align: center; margin-top: 15px; color: #7f8c8d;">
+                    💡 <strong>Dica:</strong> Clique nas células brancas para criar paredes!
+                </p>
+            </div>
+
+            <!-- PAINEL DE CONTROLE -->
+            <div class="control-panel">
+                <!-- BOTÕES -->
+                <div class="card">
+                    <h3>🎮 Controles</h3>
+                    <div class="buttons">
+                        <button class="btn-start" id="btnStart" onclick="startSearch()">▶️ COMEÇAR</button>
+                        <button class="btn-pause" id="btnPause" onclick="pauseSearch()" disabled>⏸️ PAUSAR</button>
+                        <button class="btn-reset" onclick="resetAll()">🔄 LIMPAR TUDO</button>
+                    </div>
+                </div>
+
+                <!-- VELOCIDADE -->
+                <div class="card">
+                    <h3>⚡ Velocidade</h3>
+                    <div class="speed-control">
+                        <label>Velocidade do Robô:</label>
+                        <input type="range" id="speedSlider" min="100" max="1000" value="400" step="50">
+                        <div class="speed-labels">
+                            <span>🐰 Rápido</span>
+                            <span>🐢 Devagar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ESTATÍSTICAS -->
+                <div class="card">
+                    <h3>📊 Estatísticas</h3>
+                    <div class="stats">
+                        <div class="stat-box">
+                            <div class="stat-number" id="stepCount">0</div>
+                            <div class="stat-label">Passos Dados</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number" id="backtrackCount">0</div>
+                            <div class="stat-label">Vezes que Voltou</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LOG -->
+                <div class="card">
+                    <h3>📝 O que está acontecendo?</h3>
+                    <div class="activity-log" id="logBox">
+                        <div class="log-entry log-start">
+                            👋 Olá! Desenhe algumas paredes e clique em COMEÇAR para ver a mágica acontecer!
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEGENDA -->
+                <div class="card">
+                    <h3>🎨 Legenda</h3>
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: linear-gradient(135deg, #56ccf2, #2f80ed);"></div>
+                            <span>🏁 Início</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: linear-gradient(135deg, #f093fb, #f5576c);"></div>
+                            <span>🎯 Destino</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: linear-gradient(145deg, #34495e, #2c3e50);"></div>
+                            <span>🧱 Parede</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: linear-gradient(135deg, #a8e6cf, #dcedc1);"></div>
+                            <span>👣 Tentando</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: linear-gradient(135deg, #ffd3b6, #ffaaa5);"></div>
+                            <span>↩️ Voltou</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"></div>
+                            <span>✅ Caminho!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ROWS = 10, COLS = 10;
+        let grid = [];
+        let isRunning = false;
+        let isPaused = false;
+        let stepCount = 0;
+        let backtrackCount = 0;
+        let currentStep = 1;
+
+        const mazeEl = document.getElementById('maze');
+        const logBox = document.getElementById('logBox');
+        const speedSlider = document.getElementById('speedSlider');
+        const btnStart = document.getElementById('btnStart');
+        const btnPause = document.getElementById('btnPause');
+
+        // INICIALIZAR GRID
+        function initGrid() {
+            mazeEl.innerHTML = '';
+            grid = [];
+            
+            for (let r = 0; r < ROWS; r++) {
+                let row = [];
+                for (let c = 0; c < COLS; c++) {
+                    row.push(0);
+                    
+                    const cell = document.createElement('div');
+                    cell.className = 'cell';
+                    cell.id = `c-${r}-${c}`;
+                    
+                    if (r === 0 && c === 0) {
+                        cell.classList.add('start');
+                        cell.innerHTML = '🏠';
+                    } else if (r === ROWS-1 && c === COLS-1) {
+                        cell.classList.add('end');
+                        cell.innerHTML = '🏁';
+                    }
+                    
+                    cell.onclick = () => toggleWall(r, c);
+                    mazeEl.appendChild(cell);
+                }
+                grid.push(row);
+            }
+        }
+
+        function toggleWall(r, c) {
+            if (isRunning) return;
+            if ((r === 0 && c === 0) || (r === ROWS-1 && c === COLS-1)) return;
+            
+            const cell = document.getElementById(`c-${r}-${c}`);
+            if (grid[r][c] === 0) {
+                grid[r][c] = 1;
+                cell.classList.add('wall');
+                cell.innerHTML = '🧱';
+            } else {
+                grid[r][c] = 0;
+                cell.classList.remove('wall');
+                cell.innerHTML = '';
+            }
+        }
+
+        // LOGS COM CORES
+        function addLog(msg, type) {
+            const entry = document.createElement('div');
+            entry.className = `log-entry log-${type}`;
+            entry.innerHTML = msg;
+            logBox.insertBefore(entry, logBox.firstChild);
+            
+            // Limita a 20 entradas
+            while (logBox.children.length > 20) {
+                logBox.removeChild(logBox.lastChild);
+            }
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function updateStats() {
+            document.getElementById('stepCount').textContent = stepCount;
+            document.getElementById('backtrackCount').textContent = backtrackCount;
+        }
+
+        // VISUALIZAÇÃO DO ROBÔ
+        function moveRobot(r, c, show) {
+            document.querySelectorAll('.cell').forEach(cell => {
+                cell.classList.remove('robot-here');
+            });
+            
+            if (show) {
+                const cell = document.getElementById(`c-${r}-${c}`);
+                if (cell && !cell.classList.contains('end')) {
+                    cell.innerHTML = '🤖';
+                    cell.classList.add('robot-here');
+                }
+            }
+        }
+
+        // BACKTRACKING COM ANIMAÇÕES
+        async function solve(r, c, visited, path) {
+            if (!isRunning) return false;
+            
+            while (isPaused) {
+                await sleep(100);
+            }
+
+            // VALIDAÇÕES
+            if (r < 0 || c < 0 || r >= ROWS || c >= COLS) return false;
+            if (grid[r][c] === 1) {
+                addLog(`🧱 Ops! Parede encontrada em [${r},${c}]`, 'block');
+                return false;
+            }
+            if (visited[r][c]) return false;
+
+            // MOVER ROBÔ
+            moveRobot(r, c, true);
+            const cell = document.getElementById(`c-${r}-${c}`);
+            
+            stepCount++;
+            updateStats();
+            
+            // Adiciona número do passo
+            const stepNum = document.createElement('div');
+            stepNum.className = 'step-number';
+            stepNum.textContent = currentStep++;
+            cell.appendChild(stepNum);
+            
+            addLog(`🚶 Passo ${stepCount}: Tentando ir para [${r},${c}]`, 'try');
+            await sleep(1100 - parseInt(speedSlider.value));
+
+            // CHEGOU NO FIM?
+            if (r === ROWS-1 && c === COLS-1) {
+                cell.innerHTML = '🏁🎉';
+                return true;
+            }
+
+            // MARCA COMO VISITADO
+            visited[r][c] = true;
+            cell.classList.add('trying');
+            path.push({r, c});
+
+            // TENTA AS 4 DIREÇÕES
+            const directions = [
+                {dr: 1, dc: 0, name: '⬇️ Baixo'},
+                {dr: 0, dc: 1, name: '➡️ Direita'},
+                {dr: -1, dc: 0, name: '⬆️ Cima'},
+                {dr: 0, dc: -1, name: '⬅️ Esquerda'}
+            ];
+
+            for (let dir of directions) {
+                addLog(`🔍 Tentando ir para ${dir.name} de [${r},${c}]`, 'try');
+                
+                if (await solve(r + dir.dr, c + dir.dc, visited, path)) {
+                    return true;
+                }
+                
+                await sleep(200); // Pausa entre tentativas
+            }
+
+            // BACKTRACKING!
+            backtrackCount++;
+            updateStats();
+            
+            addLog(`⚠️ BACKTRACKING! Todas as direções de [${r},${c}] falharam. Voltando...`, 'back');
+            
+            visited[r][c] = false;
+            path.pop();
+            
+            cell.classList.remove('trying', 'robot-here');
+            cell.classList.add('backtracking');
+            
+            if (cell.querySelector('.step-number')) {
+                cell.querySelector('.step-number').style.opacity = '0.3';
+            }
+            
+            await sleep(1100 - parseInt(speedSlider.value));
+            
+            return false;
+        }
+
+        async function startSearch() {
+            if (isRunning) return;
+            
+            isRunning = true;
+            isPaused = false;
+            stepCount = 0;
+            backtrackCount = 0;
+            currentStep = 1;
+            
+            btnStart.disabled = true;
+            btnPause.disabled = false;
+            
+            logBox.innerHTML = '';
+            addLog('🚀 Começando a busca! Vamos ver o robô pensando...', 'start');
+
+            // Limpa estados visuais
+            document.querySelectorAll('.cell').forEach(c => {
+                c.classList.remove('trying', 'backtracking', 'robot-here', 'success');
+                const stepNum = c.querySelector('.step-number');
+                if (stepNum) stepNum.remove();
+                
+                if (!c.classList.contains('wall')) {
+                    if (c.classList.contains('start')) c.innerHTML = '🏠';
+                    else if (c.classList.contains('end')) c.innerHTML = '🏁';
+                    else c.innerHTML = '';
+                }
+            });
+
+            updateStats();
+            moveRobot(0, 0, true);
+
+            let visited = Array.from({length: ROWS}, () => Array(COLS).fill(false));
+            let path = [];
+
+            const success = await solve(0, 0, visited, path);
+
+            isRunning = false;
+            btnStart.disabled = false;
+            btnPause.disabled = true;
+            moveRobot(0, 0, false);
+
+            if (success) {
+                addLog('🎉🎊 CONSEGUIU! O robô encontrou o caminho até a bandeira!', 'success');
+                
+                // Anima o caminho final
+                for (let pos of path) {
+                    const cell = document.getElementById(`c-${pos.r}-${pos.c}`);
+                    cell.classList.remove('trying', 'backtracking');
+                    cell.classList.add('success');
+                    await sleep(50);
+                }
+            } else {
+                addLog('😢 Não existe caminho possível. Tente remover algumas paredes!', 'block');
+            }
+        }
+
+        function pauseSearch() {
+            isPaused = !isPaused;
+            btnPause.textContent = isPaused ? '▶️ CONTINUAR' : '⏸️ PAUSAR';
+            addLog(isPaused ? '⏸️ Pausado' : '▶️ Continuando...', 'start');
+        }
+
+        function resetAll() {
+            isRunning = false;
+            isPaused = false;
+            stepCount = 0;
+            backtrackCount = 0;
+            currentStep = 1;
+            
+            btnStart.disabled = false;
+            btnPause.disabled = true;
+            btnPause.textContent = '⏸️ PAUSAR';
+            
+            logBox.innerHTML = '';
+            addLog('🧹 Tudo limpo! Crie seu labirinto e clique em COMEÇAR.', 'start');
+            
+            updateStats();
+            initGrid();
+        }
+
+        // INICIA
+        initGrid();
+    </script>
+</body>
+</html>
