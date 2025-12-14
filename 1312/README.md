@@ -1,12 +1,20 @@
 # Matrizes
 
-Matrizes são vetores de vetores ou seja para cada posição de um vetor do tipo vet[n], temos que em vet[n-n] ou seja vet[0] uma posicao que dentro dela temos um novo vetor x[k] onde k pode ser ou não do mesmo tamanho de n, não sendo entretanto necessário.
+# Desvendando as Matrizes
 
-Podemos declarar então uma matriz em C++ como:
-```c++
-// matriz de inteiros em C++
-int matriz_inteiros[3][2]
-````
+Imagine um prédio de apartamentos ou uma planilha do Excel. Para encontrar uma informação específica, você precisa de duas coordenadas: a **Linha** e a **Coluna**. Na programação e na matemática, essa estrutura é chamada de **Matriz**.
+
+Tecnicamente, uma matriz é um "vetor de vetores".
+* Um **vetor** comum (`vet[x]`) é uma linha única de caixinhas.
+* Uma **matriz** (`mat[x][y]`) é uma tabela inteira, onde cada linha contém várias colunas.
+
+### Como declarar em C++
+Para criar uma matriz de números inteiros com 3 linhas e 2 colunas:
+
+```cpp
+// Sintaxe: tipo nome[linhas][colunas];
+int matriz_inteiros[3][2];
+```
 Nessa representação a matriz_inteiros possui 3 linhas e 2 colunas em cada linha podendo ser representada pelo desenho esquemático:
 
 $$
