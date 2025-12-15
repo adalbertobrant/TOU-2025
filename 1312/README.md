@@ -184,3 +184,14 @@ $$
 
 ### Exemplo em C++
 Para um exemplo de código em C++, veja o arquivo [multiplicacao.cpp](multiplicacao.cpp).
+
+### Exercícios Resolvidos do 1 a 4 - Atenção exercício 4 tem um desafio a ser lido e feito nos comentários
+
+|  Exercício  |  link  |
+| :---        | :---   |
+|  **Ex01**       |        |
+|  **Ex02**       |        |
+|  **Ex03**       |        |
+|  **Ex04**       |        |
+
+
