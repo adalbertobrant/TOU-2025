@@ -189,9 +189,9 @@ Para um exemplo de código em C++, veja o arquivo [multiplicacao.cpp](multiplica
 
 |  Exercício  |  link  |
 | :---        | :---   |
-|  **Ex01**       |        |
-|  **Ex02**       |        |
-|  **Ex03**       |        |
-|  **Ex04**       |        |
+|  **Ex01**       |    https://github.com/adalbertobrant/TOU-2025/blob/main/1312/resolvidos/ex01.cpp    |
+|  **Ex02**       |    https://github.com/adalbertobrant/TOU-2025/blob/main/1312/resolvidos/ex02.cpp    |
+|  **Ex03**       |    https://github.com/adalbertobrant/TOU-2025/blob/main/1312/resolvidos/ex03.cpp    |
+|  **Ex04**       |    https://github.com/adalbertobrant/TOU-2025/blob/main/1312/resolvidos/ex04.cpp    |
 
 
