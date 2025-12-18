@@ -4,7 +4,7 @@ using namespace std;
 int main() {
     int mat[2][2] = { {1,2}, {3,4} };
     int x[2][2] = { {5,6}, {7,8} };
-    int res[2][2] = {0}; // Inicializa a matriz resultado com zeros
+    int res[2][2] = {{0,0},{0,0}}; // Inicializa a matriz resultado com zeros
 
     // Método 1: Multiplicação manual
     res[0][0] = (mat[0][0] * x[0][0]) + (mat[0][1] * x[1][0]);
@@ -21,7 +21,7 @@ int main() {
     }
 
     // Reset da matriz resultado para o método com loops
-    int res2[2][2] = {0}; // Nova matriz para evitar sobreposição
+    int res2[2][2] = {{0,0},{0,0}}; // Nova matriz para evitar sobreposição
 
     // Método 2: Multiplicação com loops
     for (int i = 0; i < 2; i++) {
