@@ -86,3 +86,7 @@ Prática: Use as funções prontas (push_back, size, sort) para facilitar seu c�
 
 
 Interpretação: Antes de codificar, leia o enunciado e decida se você precisa de um tamanho fixo (array) ou se a quantidade de dados pode mudar (vector)
+
+5. Material Complementar acesse abaixo
+   ![Código Exemplo](https://github.com/adalbertobrant/TOU-2025/blob/main/0612/material_complementar_vector.cpp)
+   
