@@ -12,6 +12,7 @@ Abaixo está o material da Aula Estruturas de Repetição - TOU - 2025
 | Vetores                                      | [vetores](https://github.com/adalbertobrant/TOU-2025/blob/main/0612/Aula_3_material_consulta_vetores.md) |
 | Matrizes                                     | [matrizes](./1312/5%20-%20MATRIZES.pdf) |
 | Strings                                      | [Strings](./070226/STRINGS.pdf) |
+| Funções                                      | [Funções](./210226/README.md)   |
 
 ---
 
