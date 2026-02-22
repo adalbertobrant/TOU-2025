@@ -92,7 +92,7 @@ Toda função recursiva precisa obrigatoriamente de duas coisas para não rodar 
 
 ## 💻 Material da aula
 
-* **[Funções.pdf](../../) ** Material de Funções
+* **[Funções.pdf](https://github.com/adalbertobrant/TOU-2025/blob/48415d0904fc647a59c6d8c9fcfb384618df9b46/210226/7%20-%20FUN%C3%87%C3%95ES.pdf) ** Material de Funções
 * **[Resolução Função , Struct](../../) ** Resolução de exercícios
 * **[Exercícios] (../../) ** Exercícios
 
