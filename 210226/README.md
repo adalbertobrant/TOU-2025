@@ -88,6 +88,21 @@ Toda função recursiva precisa obrigatoriamente de duas coisas para não rodar 
 1. **Caso Base:** A condição de parada. É o cenário mais simples possível que a função sabe resolver sem chamar a si mesma.
 2. **Passo Recursivo:** A lógica que quebra o problema e faz a nova chamada caminhando em direção ao caso base.
 
+Exemplo da função fatorial recursiva:
+
+```cpp
+    int fat ( int n ) {
+        // condição de parada ou CASO BASE
+
+        if ( n == 0 || n == 1 ) return 1;
+
+        // Passo Recursivo: O 'n' atual é multiplicado pelo resultado do fatorial do seu antecessor.
+        // Isso faz uma nova chamada à função, adicionando um novo quadro na pilha de execução da memória (Call Stack).
+
+        return n * fat ( n - 1 );
+}
+```
+
 ---
 
 ## 💻 Material da aula
