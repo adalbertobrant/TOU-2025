@@ -1,89 +1,74 @@
-# Funções
+## 🛠️ Funções em C++
 
-As funções ajudam o nosso código a ficar mais limpo e organizado. Futuramente, vocês aprenderão a utilizar esse recurso junto com as bibliotecas.
+As funções ajudam o nosso código a ficar mais limpo, organizado e reaproveitável. Futuramente, vocês aprenderão a utilizar esse recurso em conjunto com diversas bibliotecas.
 
-Devemos lembrar que, na verdade, nós já usamos funções o tempo todo, sendo o exemplo mais prático a nossa famosa função principal: int main( ) { }
+Devemos lembrar que, na verdade, nós já usamos funções o tempo todo, sendo o exemplo mais prático a nossa famosa função principal: `int main() {}`
 
-Toda função em C / C++ tem o seguinte formato básico:
+Toda função em C++ tem o seguinte formato básico:
 
-TIPO_DA_FUNÇÃO NOME_DA_FUNÇÃO ( PARÂMETROS DA FUNÇÃO ) {     CÓDIGO A SER EXECUTADO (CORPO DA FUNÇÃO)     RETORNO DA FUNÇÃO (SE NECESSÁRIO) }
-```
-  TipoDeRetorno nomeDaFuncao(TipoParametro1 param1, TipoParametro2 param2) {
-    // Lógica interna da função
-    return valor;
+```cpp
+TIPO_DA_FUNCAO NOME_DA_FUNCAO ( PARAMETROS DA FUNCAO ) { 
+    // CÓDIGO A SER EXECUTADO (CORPO DA FUNÇÃO)
+    // RETORNO DA FUNÇÃO (SE NECESSÁRIO)
 }
+
 ```
-## Atenção: 
-  O retorno da função deve acompanhar o seu tipo, ou seja se a função é do tipo int , seu retorno deve ser int, se string, seu retorno deve ser do tipo string e assim por diante.
 
-## O tipo void:
-  É uma função especial que não tem um retorno sendo normalmente utilizada com ponteiros, ou em alguns casos para a realização do casting, por enquanto é apenas uma observação mas é interessante saber mais para frente sobre o assunto.
+**Regra de Ouro:** O retorno da função deve acompanhar o seu tipo. Ou seja, se a função é do tipo `int`, seu retorno deve ser `int`; se for `string`, o retorno deve ser `string`, e assim por diante.
 
-## Retorno em uma função
-  Para retorno de valores unitários já sabemos que nossa função irá retornar de acordo com o parâmetro da mesma, e se quisermos retornar na nossa função mais de um valor ?
-  Se o retorno de valores necessários para a nossa função for do mesmo tipo podemos utilizar um vetor daquele mesmo tipo da função se inteiro , podemos retornar um vector <int> por exemplo.
-  Mas e quando queremos retornar valores diferentes, como double, string, int em nossa função como podemos fazer isso ? Veja o exemplo a seguir:
-  ```c++
+* **A Exceção (`void`):** Quando uma função é do tipo `void` (vazio), ela **não tem retorno**. Ela serve apenas para executar uma ação, como imprimir algo na tela.
+
+### Exemplo Prático: Unindo `struct` e Funções (Sistema de IMC)
+
+Veja como podemos criar funções separadas para ler dados e fazer cálculos, deixando a `main` muito mais limpa:
+
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
-struct info_pessoa { // struct de determina informações de uma pessoa 
+// Definindo a nossa estrutura de dados
+struct info_pessoa {
     string nome;
     int idade;
     double peso;
     double altura;
 };
 
-// Função que recebe uma struct, preenche os dados e a retorna
-// Observe que o tipo de parâmetro da função é também uma struct
-
+// Função que recebe uma struct, preenche os dados pelo teclado e a retorna
 info_pessoa entrada_dados_pessoais(info_pessoa pessoa) {
-
     cout << "Digite nome da pessoa -> ";
     cin >> pessoa.nome;
     
     cout << "Digite idade da pessoa -> ";
-    cin >> pessoa.idade; 
+    cin >> pessoa.idade;
     
-    cout << "Digite peso da pessoa -> "; 
-    cin >> pessoa.peso; 
+    cout << "Digite peso da pessoa -> ";
+    cin >> pessoa.peso;
     
-    cout << "Digite altura da pessoa -> "; 
-    cin >> pessoa.altura; 
+    cout << "Digite altura da pessoa -> ";
+    cin >> pessoa.altura;
     
-    return pessoa; // retorna a struct passada
+    return pessoa; // Retorna a struct preenchida
 }
 
-// Função para calcular o IMC
-
+// Função para calcular o IMC (Independente da struct)
 double calcular_imc(double peso, double altura) {
-
-    return peso / (altura * altura); 
+    return peso / (altura * altura);
 }
 
 int main() {
-
-    // Aqui criamos uma varíavel do tipo struct info_pessoa
-
     info_pessoa aluno;
 
     cout << "--- SISTEMA DE CADASTRO E IMC ---\n";
 
-    // 2. Chamamos a função para preencher os dados.  
-    // O retorno da função vai sobrescrever a variável 'aluno'
-
+    // O retorno da função vai preencher a variável 'aluno'
     aluno = entrada_dados_pessoais(aluno);
 
-    // 3. Chamamos a função de IMC, passando apenas os atributos necessários
-
-    double imc_resultado = calcular_imc(aluno.peso, aluno.altura); 
-
-    // Mostra o resultado na tela , aqui podemos criar uma função do tipo void para mostrar esse resultado
-    // DESAFIO -> CRIE A FUNÇÃO VOID QUE MOSTRE O RESULTADO COM OS DADOS NOME DO PACIENTE, IDADE, IMC CALCULADO
-    // void nome_função ( parâmtros da função ) { corpo da função } 
+    // Chamamos a função de IMC passando os atributos específicos
+    double imc_resultado = calcular_imc(aluno.peso, aluno.altura);
 
     cout << "\n--- RESULTADO ---\n";
-    cout << "Nome do Paciente: " << aluno.nome << "\n";
+    cout << "Nome: " << aluno.nome << "\n";
     cout << "Idade: " << aluno.idade << " anos\n";
     cout << "IMC Calculado: " << imc_resultado << "\n";
 
@@ -91,17 +76,61 @@ int main() {
 }
 
 ```
-  No exemplo acima observamos o poder da função associado a essa nova estrutura de dados chamada struct .
 
-  Segue abaixo uma tabela com as diferenças entre Pair e Struct em C++ .
+---
 
-|  Característica     |  std::pair                                           |  struct                                                                  |
-| --                  | --                                                   | --                                                                       |
-| -- Acesso           | ".first, .second"                                    |  "Nomes definidos (ex: .idade, .pontos)"                                 |
-| -- Semântica        |  Genérica (baixa clareza visual)                     |  Específica (alta clareza visual)                                        |
-| -- Ordenação Padrão |  "Nativa (compara o primeiro, desempata no segundo)" |  Requer criação de um comparator ou sobrecarga do operador <             |
-| -- Quantidade de Dados  |  Exatamente 2                                    | Quantos forem necessários                                                |
+## 🔄 Funções Recursivas
 
-## Material dado em aula 
+A recursão ocorre quando uma função invoca a si mesma dentro do seu próprio código. É uma técnica essencial em programação competitiva para resolver problemas que podem ser divididos em problemas menores iguais.
 
+Toda função recursiva precisa obrigatoriamente de duas coisas para não rodar infinitamente e travar o computador:
 
+1. **Caso Base:** A condição de parada. É o cenário mais simples possível que a função sabe resolver sem chamar a si mesma.
+2. **Passo Recursivo:** A lógica que quebra o problema e faz a nova chamada caminhando em direção ao caso base.
+
+---
+
+## 💻 Material da aula
+
+* **[Funções.pdf](../../) ** Material de Funções
+* **[Resolução Função , Struct](../../) ** Resolução de exercícios
+* **[Exercícios] (../../) ** Exercícios
+
+## 🥊 A Grande Disputa: `std::pair` vs `struct`
+
+Tanto `pair` quanto `struct` servem para agrupar dados, mas usamos cada um em situações diferentes:
+
+### `std::pair` (O Rápido e Simples)
+
+Agrupa exatamente **dois** valores (que podem ser de tipos diferentes), acessados por `.first` e `.second`.
+
+* **Quando usar:** Em competições, quando precisamos retornar dois valores de uma função rapidamente ou ao agrupar dados simples onde a ordem e a velocidade de digitação importam mais que o nome das variáveis. O `pair` já sabe se comparar automaticamente (útil no `sort()`).
+* **Quando NÃO usar:** Quando você precisa de 3 ou mais dados, ou quando chamar de `.first` deixar o código confuso.
+
+### `struct` (A Planta Baixa)
+
+Cria um **tipo de dado customizado**, onde você dá nome a cada variável (ex: `.idade`, `.peso`).
+
+* **Quando usar:** Quando modelamos entidades reais com múltiplos atributos (ex: `Atleta`, `Carro`, `Ponto3D`). Deixa o código extremamente legível e organizado.
+* **Quando NÃO usar:** Se for só para retornar dois números aleatórios de uma função rápida.
+
+---
+
+## 💻 Exercícios Práticos (Neps Academy)
+
+Para fixar o conteúdo da aula, resolvam os seguintes problemas no Neps Academy:
+
+### 1. Treinando Funções Básicas
+
+* **[Problema 27 - Primo](https://neps.academy/br/exercise/27):** Isole a lógica matemática em uma função.
+* **[Problema 169 - Fórmula de Bhaskara](https://neps.academy/br/exercise/169):** Pratique passar múltiplos parâmetros.
+
+### 2. Desafios de Recursão
+
+* **[Problema 173 - Fibonacci](https://neps.academy/br/exercise/173):** Implemente a versão recursiva para entender a árvore de chamadas.
+* **[Problema 107 - Torre de Hanói](https://neps.academy/br/exercise/107):** O clássico absoluto para dominar a recursão.
+
+### 3. Organização de Dados (`pair` e `struct`)
+
+* **[Problema 160 - Ordenação Simples](https://neps.academy/br/exercise/160):** Resolva usando vetores normais e tente adaptar usando `std::pair`.
+* **[Problema 243 - Olimpíadas](https://neps.academy/br/exercise/243):** O desafio final. Crie uma `struct` para os países, armazene as medalhas e utilize uma função de comparação (comparator) para ordenar corretamente.
