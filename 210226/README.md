@@ -93,7 +93,7 @@ Toda função recursiva precisa obrigatoriamente de duas coisas para não rodar 
 ## 💻 Material da aula
 
 * **[Funções.pdf](https://github.com/adalbertobrant/TOU-2025/blob/48415d0904fc647a59c6d8c9fcfb384618df9b46/210226/7%20-%20FUN%C3%87%C3%95ES.pdf) ** Material de Funções
-* **[Resolução Função , Struct](../../) ** Resolução de exercícios
+* **[Resolução Função , Struct](https://github.com/adalbertobrant/TOU-2025/blob/e8d4526c306d835e67a286b119bf37e31ccc08df/210226/Resolu%C3%A7%C3%A3o%20-%20Fun%C3%A7%C3%A3o%2C%20Ordena%C3%A7%C3%A3o%20e%20Struct.pdf) ** Resolução de exercícios
 * **[Exercícios] (../../) ** Exercícios
 
 ## 🥊 A Grande Disputa: `std::pair` vs `struct`
