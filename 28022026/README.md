@@ -84,7 +84,7 @@ Para praticar, resolva os seguintes problemas na [NEPS Academy](https://neps.aca
 ### Ordenação
 1.  [Matryoshka](https://neps.academy/br/course/programacao-basica-(codcad)/lesson/matryoshka)
 2.  [Olimpíadas](https://neps.academy/br/exercise/221)
-3.  [Merge Sort (Implementação)](https://neps.academy/br/exercise/229)
+3.  [MergeSort](Implementação)](https://www.ime.usp.br/~pf/algorithms/chapters/mergesort.html)
 
 ### Ponteiros, Structs e Funções
 1.  [Função Primo](https://neps.academy/br/exercise/247) (Prática de Funções)
