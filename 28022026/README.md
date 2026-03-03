@@ -82,7 +82,7 @@ Sem o domínio de ponteiros, é impossível conectar os nós de uma árvore ou g
 Para praticar, resolva os seguintes problemas na [NEPS Academy](https://neps.academy/br):
 
 ### Ordenação
-1.  [Matryoshka]([https://neps.academy/br/course/programacao-basica-(codcad)/lesson/matryoshka])
+1.  [Matryoshka](https://neps.academy/br/course/programacao-basica-(codcad)/lesson/matryoshka)
 2.  [Olimpíadas](https://neps.academy/br/exercise/221)
 3.  [Merge Sort (Implementação)](https://neps.academy/br/exercise/229)
 
