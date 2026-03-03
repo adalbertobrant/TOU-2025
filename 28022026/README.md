@@ -88,6 +88,6 @@ Para praticar, resolva os seguintes problemas na [NEPS Academy](https://neps.aca
 
 ### Ponteiros, Structs e Funções
 1.  [Função Primo](https://neps.academy/br/exercise/247) (Prática de Funções)
-2.  [Gincana](https://neps.academy/br/exercise/253) (Pode ser resolvido com structs)
-3.  [Passagem de Parâmetros](https://neps.academy/br/course/programacao-em-c++-(intermediario)/lesson/passagem-por-valor-e-por-referencia) (Entender referência vs ponteiros)
+2.  [Times](https://neps.academy/br/exercise/253) (Pode ser resolvido com structs)
+3.  [Passagem de Parâmetros](https://github-pages.ucl.ac.uk/research-computing-with-cpp/02cpp1/sec02PassByValueOrReference.html) (Entender referência vs ponteiros)
 
