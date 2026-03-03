@@ -13,6 +13,7 @@ Abaixo está o material da Aula Estruturas de Repetição - TOU - 2025
 | Matrizes                                     | [matrizes](./1312/5%20-%20MATRIZES.pdf) |
 | Strings                                      | [Strings](./070226/STRINGS.pdf) |
 | Funções                                      | [Funções](./210226/README.md)   |
+| Ordenação                                    | [Ordenação](./28022026/README.md) |
 
 ---
 
