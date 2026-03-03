@@ -241,4 +241,4 @@ bool compare(const Corredor& a, const Corredor& b) {
 
 ```
 
-**Posso te ajudar a criar um script em Python para gerar automaticamente esses 10 mil nomes e tempos para você testar o código dos seus alunos?**
+**Desenvolvido com IA - Pode conter erros. Em caso de dúvidas lembre-se de abrir um issue**
