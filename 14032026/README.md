@@ -309,8 +309,14 @@ int main() {
 ## 💪 Exercícios de Fixação
 
 1. **O Filtro Dinâmico:** Crie um programa que leia um número $N$. Aloque um vetor dinâmico de tamanho $N$ usando `calloc`. Leia os números. Crie um novo vetor dinâmico apenas com os números pares lidos, usando `realloc` a cada número par encontrado. Libere a memória de ambos ao final.
+
+
 2. **Torneio de Games (Struct + Sort):** Crie uma struct `Jogador` com `nickname`, `pontuacao` e `penalidades`. Use `std::sort` (ou `qsort`) para ordenar o ranking: Maior pontuação primeiro. Em caso de empate, o com menor penalidade. Empatou de novo? Ordem alfabética do nickname.
+
+
 3. **Simulador de Fila de Banco:** Implemente um sistema onde clientes entram na fila (alocação dinâmica de um array de structs `Cliente`). Cada cliente tem `idade` e `tipo_atendimento`. Crie um `sort` que sempre jogue idosos (> 60 anos) para a frente, mantendo a ordem de chegada entre os idosos e entre os mais novos.
+ 
+
 4. **Análise de Complexidade:** Escreva um pequeno texto calculando a complexidade de tempo de encontrar o maior valor não-repetido em um vetor de tamanho $N$. Tente criar uma solução $O(N \log N)$ e uma solução $O(N^2)$.
 
 ---
