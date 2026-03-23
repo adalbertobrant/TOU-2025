@@ -9,12 +9,13 @@ Abaixo está o material da Aula Estruturas de Repetição - TOU - 2025
 | Material Aula | link |
 | :--- | :--- |
 | Estruturas de Repetição For, While, Do While | [estruturasRepetição](./3-estruturasDeRepeticao-while.pdf) |
-| Vetores                                      | [vetores](https://github.com/adalbertobrant/TOU-2025/blob/main/0612/Aula_3_material_consulta_vetores.md) |
-| Matrizes                                     | [matrizes](./1312/5%20-%20MATRIZES.pdf)    |
-| Strings                                      | [Strings](./070226/STRINGS.pdf)            |
-| Funções                                      | [Funções](./210226/README.md)              |
-| Ordenação                                    | [Ordenação](./28022026/README.md)          |
-| Ordenação parte II                           | [Ordenação parte II](./14032026/README.md) |
+| Vetores                                      | [vetores](https://github.com/adalbertobrant/TOU-2025/blob/main/0612/Aula_3_material_consulta_vetores.md)  |
+| Matrizes                                     | [matrizes](./1312/5%20-%20MATRIZES.pdf)     |
+| Strings                                      | [Strings](./070226/STRINGS.pdf)             |
+| Funções                                      | [Funções](./210226/README.md)               |
+| Ordenação                                    | [Ordenação](./28022026/README.md)           |
+| Ordenação parte II                           | [Ordenação parte II](./14032026/README.md)  |
+| Leitura de arquivos                          | [Leitura de arquivos](./27032026/README.md) |
 
 ---
 ## 📚 Questões Resolvidas
